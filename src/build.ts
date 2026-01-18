@@ -1,5 +1,5 @@
-import fs from "node:fs";
-import path from "node:path";
+import fs from "fs";
+import path from "path";
 import { content } from "./content";
 
 const outputDir = path.resolve(process.cwd(), "public");
