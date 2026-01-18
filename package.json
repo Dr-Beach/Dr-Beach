@@ -5,6 +5,7 @@
     "build": "tsc && node dist/build.js"
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "typescript": "^5.4.5"
   }
 }
