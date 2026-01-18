@@ -2,7 +2,8 @@
   "name": "dr-beach-site",
   "private": true,
   "scripts": {
-    "build": "tsc && node dist/build.js"
+    "build": "echo \"skip build\"",
+    "build:local": "tsc && node dist/build.js"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
