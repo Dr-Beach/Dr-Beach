@@ -1,0 +1,169 @@
+:root {
+  color-scheme: light;
+  --ink: #1b1b1b;
+  --muted: #6b6b6b;
+  --accent: #1f6f8b;
+  --accent-strong: #115265;
+  --panel: rgba(255, 255, 255, 0.86);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: #0c1920;
+}
+
+.page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.8)),
+    url("https://dj-dr-beach.weebly.com/uploads/2/0/4/5/20451859/background-images/1836985025.jpeg")
+      center/cover no-repeat fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 3.5rem 6vw 3rem;
+}
+
+.hero {
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+  max-width: min(320px, 80%);
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5rem;
+}
+
+.tagline {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin: 0 0 1.75rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--accent-strong);
+  transform: translateY(-2px);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.roles {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.role-card {
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.role-card img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.role-card h3 {
+  margin: 1rem 0 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.story {
+  background: var(--panel);
+  border-radius: 24px;
+  padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
+.story h2 {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.story p {
+  margin: 0 0 1.4rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.story p:last-of-type {
+  margin-bottom: 0;
+}
+
+.story-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta.secondary {
+  background: transparent;
+  border: 2px solid var(--accent-strong);
+  color: var(--accent-strong);
+}
+
+.cta.secondary:hover {
+  background: var(--accent-strong);
+  color: #fff;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 2.5rem 6vw;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
