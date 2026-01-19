@@ -100,7 +100,7 @@ body {
 }
 
 .hero {
-  background: var(--panel);
+  background: transparent;
   border-radius: 24px;
   padding: 2.5rem clamp(1.5rem, 4vw, 3rem);
   text-align: center;
@@ -112,9 +112,12 @@ body {
   height: auto;
   display: block;
   margin: 0 auto 1.5rem;
+  background: transparent;
+  filter: brightness(0) invert(1);
 }
 
 .tagline {
+  color: #fff;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -127,15 +130,16 @@ body {
   justify-content: center;
   padding: 0.85rem 1.75rem;
   border-radius: 999px;
-  background: var(--accent);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .cta:hover {
-  background: var(--accent-strong);
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
 
