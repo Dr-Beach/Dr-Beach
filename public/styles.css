@@ -21,8 +21,7 @@ body {
 .page {
   min-height: 100vh;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.8)),
-    url("https://dj-dr-beach.weebly.com/uploads/2/0/4/5/20451859/background-images/1836985025.jpeg")
-      center/cover no-repeat fixed;
+    url("https://dj-dr-beach.weebly.com/uploads/2/0/4/5/20451859/background-images/1836985025.jpeg") center/cover no-repeat fixed;
   display: flex;
   flex-direction: column;
   gap: 3rem;
