@@ -28,6 +28,23 @@ const renderStory = () =>
     .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
     .join("");
 
+const renderStoryTitle = () => {
+  const title = content.story.title;
+  const colonIndex = title.indexOf(":");
+  if (colonIndex === -1) return escapeHtml(title);
+
+  const firstLine = title.slice(0, colonIndex);
+  const secondLine = title.slice(colonIndex + 1).trimStart();
+  return `${escapeHtml(firstLine)}<br />${escapeHtml(secondLine)}`;
+};
+
+const renderAlbumNotice = () => `
+  <div class="album-notice" role="note" aria-label="New album announcement">
+    <div class="album-notice__title">New Album “Övelgönne”</div>
+    <div class="album-notice__body">to be released soon - stay tuned</div>
+  </div>
+`;
+
 const html = `<!doctype html>
 <html lang="en">
   <head>
@@ -51,8 +68,9 @@ const html = `<!doctype html>
         </section>
 
         <section class="story">
-          <h2>${escapeHtml(content.story.title)}</h2>
+          <h2>${renderStoryTitle()}</h2>
           ${renderStory()}
+          ${renderAlbumNotice()}
           <div class="story-cta">
             <a class="cta secondary" href="${content.cta.href}">${escapeHtml(
   content.cta.label
@@ -203,6 +221,33 @@ main {
 
 .story p:last-of-type {
   margin-bottom: 0;
+}
+
+.album-notice {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(31, 111, 139, 0.18),
+    rgba(17, 82, 101, 0.08)
+  );
+  border: 1px solid rgba(17, 82, 101, 0.25);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.album-notice__title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent-strong);
+  font-size: 1.15rem;
+}
+
+.album-notice__body {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .story-cta {

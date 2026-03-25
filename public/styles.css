@@ -134,6 +134,33 @@ main {
   margin-bottom: 0;
 }
 
+.album-notice {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    rgba(31, 111, 139, 0.18),
+    rgba(17, 82, 101, 0.08)
+  );
+  border: 1px solid rgba(17, 82, 101, 0.25);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.album-notice__title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent-strong);
+  font-size: 1.15rem;
+}
+
+.album-notice__body {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .story-cta {
   text-align: center;
   margin-top: 2rem;
