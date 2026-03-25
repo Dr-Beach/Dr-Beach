@@ -41,7 +41,7 @@ export const content: SiteContent = {
       alt: "Portrait representing a mathematician",
     },
     {
-      title: "Consultian",
+      title: "Consultician",
       imageUrl: "https://dj-dr-beach.weebly.com/uploads/2/0/4/5/20451859/p32_orig.jpeg",
       alt: "Portrait representing a consultant",
     },
