@@ -38,11 +38,19 @@ const renderStoryTitle = () => {
   return `${escapeHtml(firstLine)}<br />${escapeHtml(secondLine)}`;
 };
 
-const renderAlbumNotice = () => `
-  <div class="album-notice" role="note" aria-label="New album announcement">
-    <div class="album-notice__title">New Album “Övelgönne”</div>
-    <div class="album-notice__body">to be released soon - stay tuned</div>
-  </div>
+const renderHeroAlbumPromo = () => `
+  <section class="hero-album" aria-label="New album release">
+    <p class="hero-album__headline">New Album just out!</p>
+    <img
+      class="hero-album__cover"
+      src="assets/oevelgoenne-cover.png"
+      alt="Cover art for Övelgönne by Dr. Beach"
+    />
+    <div class="hero-album__links">
+      <a class="hero-album__link" href="https://open.spotify.com/album/5VME8BY0qLERFwxkpQVjqi?si=BNuzIoUwTy6kKS1_W802sw">Play on Spotify</a>
+      <a class="hero-album__link" href="https://music.apple.com/de/album/%C3%B6velg%C3%B6nne/1889647539?l=en-GB">Play on Apple Music</a>
+    </div>
+  </section>
 `;
 
 const html = `<!doctype html>
@@ -59,7 +67,7 @@ const html = `<!doctype html>
       <header class="hero">
         <img class="logo" src="${content.logoUrl}" alt="DJ Dr. Beach logo" />
         <p class="tagline">${escapeHtml(content.tagline)}</p>
-        <a class="cta" href="${content.cta.href}">${escapeHtml(content.cta.label)}</a>
+        ${renderHeroAlbumPromo()}
       </header>
 
       <main>
@@ -70,11 +78,10 @@ const html = `<!doctype html>
         <section class="story">
           <h2>${renderStoryTitle()}</h2>
           ${renderStory()}
-          ${renderAlbumNotice()}
-          <div class="story-cta">
-            <a class="cta secondary" href="${content.cta.href}">${escapeHtml(
-  content.cta.label
-)}</a>
+          <div class="follow-cta">
+            <a class="follow-cta__link" href="https://www.instagram.com/dr.beach.music/" target="_blank" rel="noopener noreferrer">
+              Follow me on Instagram dr.beach.music
+            </a>
           </div>
         </section>
       </main>
@@ -161,6 +168,57 @@ body {
   transform: translateY(-2px);
 }
 
+.hero-album {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hero-album__headline {
+  margin: 0 0 0.9rem;
+  color: #fff;
+  font-size: clamp(1rem, 2.3vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.hero-album__cover {
+  width: min(100%, 300px);
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}
+
+.hero-album__links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-album__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-album__link:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: translateY(-2px);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -223,47 +281,26 @@ main {
   margin-bottom: 0;
 }
 
-.album-notice {
-  margin-top: 1.75rem;
-  padding: 1.25rem 1.5rem;
-  border-radius: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(31, 111, 139, 0.18),
-    rgba(17, 82, 101, 0.08)
-  );
-  border: 1px solid rgba(17, 82, 101, 0.25);
-  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
-  text-align: center;
-}
-
-.album-notice__title {
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--accent-strong);
-  font-size: 1.15rem;
-}
-
-.album-notice__body {
-  margin-top: 0.35rem;
-  color: var(--muted);
-  font-weight: 600;
-}
-
-.story-cta {
+.follow-cta {
   text-align: center;
   margin-top: 2rem;
 }
 
-.cta.secondary {
-  background: transparent;
-  border: 2px solid var(--accent-strong);
+.follow-cta__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(17, 82, 101, 0.1);
+  border: 1px solid rgba(17, 82, 101, 0.4);
   color: var(--accent-strong);
+  text-decoration: none;
+  font-weight: 700;
 }
 
-.cta.secondary:hover {
-  background: var(--accent-strong);
-  color: #fff;
+.follow-cta__link:hover {
+  background: rgba(17, 82, 101, 0.18);
 }
 
 .footer {
